@@ -1,0 +1,42 @@
+@import '../../assets/styles/base.scss';
+
+.total-card {
+  width: 35%;
+  border-radius: 16px !important;
+
+  .total-card-header {
+    background: linear-gradient(90deg, $blue, $red);
+    color: #fff;
+    height: 20px;
+
+    span {
+      font-size: medium;
+    }
+  }
+
+  .total-card-content {
+    text-align: center;
+
+    .MuiTypography-h4 {
+      background: linear-gradient(90deg, $blue, $red);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .total-card-footer {
+    text-align: center;
+    display: flow;
+
+    .MuiTypography-h7 {
+      color: $dark-gray;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .total-card {
+    width: 100%;
+  }
+}

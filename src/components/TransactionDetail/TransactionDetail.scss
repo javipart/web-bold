@@ -1,0 +1,110 @@
+@import '../../assets/styles/base.scss';
+
+.MuiPaper-root {
+  border-radius: 16px 0 0 16px;
+
+  .detail-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 4px;
+  }
+
+  .detail-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+
+    .MuiTypography-root {
+      text-align: center;
+    }
+
+    .MuiListItem-root {
+      padding-top: 0;
+      padding-bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .MuiListItemText-root {
+    margin: 0 20px;
+  }
+
+  .MuiListItemText-root.detail-label {
+    color: #9d9d9d;
+
+    .MuiTypography-root {
+      font-size: small;
+    }
+  }
+
+  .MuiListItemText-root.detail-dark {
+    color: #000;
+
+    .MuiTypography-root {
+      font-size: small;
+    }
+  }
+
+  .MuiListItemText-root.detail-light {
+    color: #9d9d9d;
+    .MuiTypography-root {
+      font-size: small;
+    }
+  }
+
+  .MuiListItemText-root.detail-blue {
+    color: $blue;
+
+    .MuiTypography-root {
+      font-size: $big-size;
+    }
+  }
+
+  .MuiListItemText-root.detail-red {
+    color: $red;
+
+    .MuiTypography-root {
+      font-size: small;
+    }
+  }
+}
+
+.detail-card-body {
+  margin-top: 50px;
+
+  .MuiListItem-root {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 40px;
+    gap: 50px;
+  }
+
+  .MuiListItem-root :nth-child(2) {
+    text-align: end;
+  }
+
+  .MuiDivider-root {
+    margin: 0 20px 0 20px;
+    background-color: $dark-gray
+  }
+
+  .transaction-text {
+    display: inline-flex;
+    vertical-align: text-bottom;
+    box-sizing: inherit;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .MuiPaper-root {
+    border-radius: 16px 16px 0 0;
+  }
+}

@@ -1,0 +1,68 @@
+@import '../../assets/styles/base.scss';
+
+.filters-pay-methods-container {
+  .filters-button {
+    background-color: #ffffff;
+    color: $blue;
+    height: 40px !important;
+    top: 15px;
+    width: 120px;
+    justify-content: end;
+    margin-bottom: 16px;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}
+
+.Mui-checked {
+  color: $red !important;
+}
+
+.MuiListSubheader-root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+
+  span {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    color: $blue;
+    font-size: $small-size;
+  }
+
+  .MuiIconButton-root {
+    margin-left: auto;
+  }
+}
+
+.MuiListItemButton-root.item-button {
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $blue;
+}
+
+.MuiListItemButton-root.item-button {
+  &:hover {
+    background-color: $light-gray;
+  }
+
+}
+
+.MuiListItemButton-root.apply-button {
+  text-align: center;
+  width: 100%;
+  border-radius: 40px;
+  background-color: $red;
+  color: #fff;
+
+  &:hover {
+    background-color: $blue;
+  }
+}

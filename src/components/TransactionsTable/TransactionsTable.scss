@@ -1,0 +1,65 @@
+@import '../../assets/styles/base.scss';
+
+.transactions-table {
+  margin-top: 16px;
+
+  .MuiToolbar-root.table-bar {
+    background: linear-gradient(90deg, $blue, $red);
+    color: #fff;
+  }
+
+  .table-bar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .transaction-text {
+    display: inline-flex;
+    vertical-align: text-bottom;
+    box-sizing: inherit;
+    text-align: center;
+    align-items: center;
+    color: $blue;
+  }
+
+  .transaction-text.link {
+    cursor: pointer;
+  }
+
+  .transaction-date {
+    color: $dark-gray;
+  }
+
+  .transaction-id {
+    color: $dark-gray;
+  }
+
+  .transaction-amount {
+    color: $blue;
+    font-size: 13px;
+  }
+
+  .transaction-deduction {
+    color: $red;
+    font-size: 11px;
+  }
+
+  .transaction-deduction-label {
+    color: $dark-gray;
+    font-size: 12px;
+  }
+  .MuiToolbar-root.search-bar-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .MuiPaper-root.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .MuiDivider-root {
+    height: 4px;
+    background-color: $light-gray;
+  }
+}

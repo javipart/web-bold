@@ -1,0 +1,43 @@
+@import '../../assets/styles/base.scss';
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 65%;
+}
+
+.MuiBottomNavigation-root {
+  display: flex;
+  justify-content: space-between;
+  height: 50px !important;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.MuiBottomNavigationAction-root {
+  background-color: #fff;
+  border-radius: 16px !important;
+  margin: 0.5rem !important;
+  max-width: 100% !important;
+  color: $blue !important;
+
+  &:hover {
+    color: $red !important;
+  }
+
+  &.Mui-selected {
+    background-color: $light-gray;
+  }
+
+  &.Mui-selected:hover {
+    color: $blue !important;
+    cursor: default;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-container {
+    width: 100%;
+  }
+}

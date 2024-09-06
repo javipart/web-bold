@@ -1,0 +1,21 @@
+@import '../../assets/styles/base.scss';
+
+.dashboard-container {
+  margin: 50px;
+
+  .total-filters {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    margin: 20px;
+  }
+  .total-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

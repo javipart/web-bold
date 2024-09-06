@@ -1,0 +1,19 @@
+$blue: #121E6C;
+$red: #EE424E;
+$dark-gray: #606060;
+$light-gray: #F3F3F3;
+$background-color: #F6F4F9;
+$big-size: 2rem;
+$medium-size: 1.5rem;
+$small-size: 1rem;
+$extra-small-size: 0.5rem;
+$backround-deg: linear-gradient(90deg, $blue, $red);
+
+body {
+  background-color: $background-color;
+  margin: 0;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
