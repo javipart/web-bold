@@ -9,7 +9,7 @@
     width: 120px;
     justify-content: end;
     margin-bottom: 16px;
-
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     &:hover {
       background-color: $light-gray;
     }
