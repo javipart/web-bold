@@ -1,5 +1,13 @@
 import { HelpOutline } from "@mui/icons-material"
-import { Card, CardContent, CardHeader, CircularProgress, Tooltip, Typography, CardActions } from "@mui/material"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CircularProgress,
+  Tooltip,
+  Typography,
+  CardActions
+} from "@mui/material"
 import './TotalCard.scss';
 
 const TotalCard = ({ option, isLoading, formatterField, totalSales, getMonth }) => {

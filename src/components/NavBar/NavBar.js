@@ -3,28 +3,19 @@ import { ExitToApp, HelpOutline, Person } from '@mui/icons-material';
 import './NavBar.scss';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 const NavBar = () => {
   const isAuthenticated = useAuth();
-  const [isAuth, setIsAuth] = useState(isAuthenticated);
   const navigate = useNavigate();
 
   const handleAction = () => {
     if (isAuthenticated) {
       localStorage.clear();
-      setIsAuth(false);
       navigate('/login')
     } else {
       navigate('/dashboard')
     }
   }
-
-  useEffect(() => {
-    if(isAuthenticated) {
-      setIsAuth(true);
-    }
-  }, [isAuthenticated])
 
   return (
     <AppBar position='static' className='app-header'>
@@ -45,7 +36,7 @@ const NavBar = () => {
                 </Tooltip>}>
               Ayuda
             </Button>
-            <IconButton sx={{ color: '#FFFFFF' }} onClick={handleAction}>{isAuth ? <ExitToApp /> : <Person />}</IconButton>
+            <IconButton sx={{ color: '#FFFFFF' }} onClick={handleAction}>{isAuthenticated ? <ExitToApp /> : <Person />}</IconButton>
           </section>
         </Toolbar>
       </Container>

@@ -1,5 +1,16 @@
 import { Close, Tune } from "@mui/icons-material";
-import { Button, Checkbox, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Menu } from "@mui/material";
+import {
+  Button,
+  Checkbox,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  ListSubheader,
+  Menu
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import './FiltersPayMethods.scss';
 

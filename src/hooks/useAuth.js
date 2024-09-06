@@ -11,6 +11,7 @@ const useAuth = () => {
     if (token) {
       setIsAuthenticated(true);
     } else {
+      setIsAuthenticated(false);
       navigate('/login');
     }
   }, [navigate]);

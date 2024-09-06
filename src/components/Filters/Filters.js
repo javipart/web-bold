@@ -2,7 +2,7 @@ import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import FiltersPayMethods from "../FiltersPayMethods/FiltersPayMethods";
 import './Filters.scss';
 
-const Filters = ({ handleFilterDate, option, handleFilter, getMonth, filter }) => {
+const Filters = ({ handleFilterDate, option, handleFilter, filter }) => {
 
   const getDate = () => {
     const now = new Date();
@@ -10,7 +10,7 @@ const Filters = ({ handleFilterDate, option, handleFilter, getMonth, filter }) =
     const month = dateString.charAt(0).toUpperCase() + dateString.slice(1);
     return month;
   };
-  console.log({ option })
+
   return (
     <div className="filters-container">
       <BottomNavigation

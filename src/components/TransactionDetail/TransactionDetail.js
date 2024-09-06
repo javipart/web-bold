@@ -1,8 +1,6 @@
 import { CheckCircle, Close, Error, Link, Smartphone } from "@mui/icons-material";
-import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemText, SwipeableDrawer, useMediaQuery } from "@mui/material";
-import { useState } from "react";
+import { Divider, IconButton, List, ListItem, ListItemText, SwipeableDrawer } from "@mui/material";
 import './TransactionDetail.scss';
-import { useTheme } from "@emotion/react";
 
 const TransactionDetail = ({
   transaction,
