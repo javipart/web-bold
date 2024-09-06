@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.scss';
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login/Login';
 import useAuth from './hooks/useAuth';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -16,11 +16,12 @@ const ProtectedRoute = ({ element: Component }) => {
 const App = () => {
   return (
     <Provider store={store}>
-      <NavBar />
       <BrowserRouter>
+        <NavBar />
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='/dashboard' element={<ProtectedRoute element={Dashboard} />} />
+          <Route path='*' element={<Navigate to="/login" />} />
         </Routes>
       </BrowserRouter>
     </Provider>

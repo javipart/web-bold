@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { authenticate } from "../../services/authService";
 import { Button, TextField, Typography, Box, Container, Alert } from "@mui/material";
 import './Login.scss';
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const isAuthenticated = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -19,6 +21,11 @@ const Login = () => {
       })
       .catch(err => setError('Invalid email or password'));
   };
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard')
+    }
+  }, [isAuthenticated, navigate])
 
   return (
     <Container className="login-container" maxWidth="xs">
