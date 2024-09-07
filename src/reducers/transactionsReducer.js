@@ -35,7 +35,15 @@ const setDataFilters = (data, dateFilter, payMethodFilter) => {
   }
   return result;
 }
-
+const getTotalSales = (result) => {
+  let totalSales = 0;
+  result.forEach(item => {
+    if (item.status === 'SUCCESSFUL') {
+      totalSales += item.amount;
+    }
+  });
+  return totalSales;
+}
 const transactionsReducer = (state = initialState.transactions, action = {}) => {
   let data;
   let dateFilter;
@@ -44,32 +52,28 @@ const transactionsReducer = (state = initialState.transactions, action = {}) => 
   let totalSales = 0;
   switch (action.type) {
     case ACTIONS.GET_TRANSACTIONS.GET:
-      return { ...state, transactions: action.data, filteredTransactions: action.data };
+      const now = new Date();
+      const currentMonth = now.getMonth();
+      data = action.data;
+      result = data.filter(item => new Date(item.createdAt).getMonth() === currentMonth);
+      result = result.sort((a, b) => b.createdAt - a.createdAt);
+      totalSales = getTotalSales(result);
+      return { ...state, transactions: result, filteredTransactions: result, totalSales };
     case ACTIONS.GET_TRANSACTIONS.OPTION_DATE:
       data = state.transactions;
       dateFilter = action.value;
       payMethodFilter = state.filter;
       result = setDataFilters(data, dateFilter, payMethodFilter);
-      result.forEach(item => {
-        if (item.status === 'SUCCESSFUL') {
-          totalSales += item.amount;
-        }
-      });
+      totalSales = getTotalSales(result);
       return { ...state, optionDate: action.value, filteredTransactions: result, totalSales };
     case ACTIONS.GET_TRANSACTIONS.SET_LOADING_TRANSACTIONS:
       return { ...state, isLoading: action.value };
-    case ACTIONS.GET_TRANSACTIONS.TOTAL_SALES:
-      return { ...state, totalSales: action.value };
     case ACTIONS.GET_TRANSACTIONS.FILTER:
       data = state.transactions;
       dateFilter = state.optionDate;
       payMethodFilter = action.value;
       result = setDataFilters(data, dateFilter, payMethodFilter);
-      result.forEach(item => {
-        if (item.status === 'SUCCESSFUL') {
-          totalSales += item.amount;
-        }
-      });
+      totalSales = getTotalSales(result);
       return { ...state, filter: action.value, filteredTransactions: result, totalSales };
     default:
       return state;

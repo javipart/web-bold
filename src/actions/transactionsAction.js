@@ -4,20 +4,12 @@ import { getTransactionsApi } from '../services/transactionsService';
 const getTransactionsSuccess = data => ({ type: ACTIONS.GET_TRANSACTIONS.GET, data });
 const changeOptionDateSuccess = value => ({ type: ACTIONS.GET_TRANSACTIONS.OPTION_DATE, value });
 const setLoadingSuccess = value => ({ type: ACTIONS.GET_TRANSACTIONS.SET_LOADING_TRANSACTIONS, value });
-const setTotalSalesSuccess = value => ({ type: ACTIONS.GET_TRANSACTIONS.TOTAL_SALES, value });
 const setFilterSuccess = value => ({ type: ACTIONS.GET_TRANSACTIONS.FILTER, value });
 
 export function getTransactions() {
   return (dispatch) => {
     dispatch(setLoadingSuccess(true));
     return getTransactionsApi().then((data) => {
-      let totalSales = 0;
-      data.forEach(item => {
-        if (item.status === 'SUCCESSFUL') {
-          totalSales += item.amount;
-        }
-      });
-      dispatch(setTotalSalesSuccess(totalSales))
       dispatch(getTransactionsSuccess(data));
       dispatch(setLoadingSuccess(false));
     }).catch(e => {
