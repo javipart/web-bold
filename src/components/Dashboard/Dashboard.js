@@ -12,7 +12,7 @@ const Dashboard = () => {
   const store = useStore();
   const dispatch = useDispatch();
   const transactionsState = useSelector((state = store.getState()) => state.transactions);
-  const { optionDate, transactions, filter, isLoading, totalSales } = transactionsState;
+  const { optionDate, filter, transactions, isLoading, totalSales, filteredTransactions } = transactionsState;
 
   const getMonth = () => {
     const now = new Date();
@@ -22,24 +22,19 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    if (!filtersLoaded) {
-      const dateFilter = localStorage.getItem('dateFilter');
-      const payMethodFilter = localStorage.getItem('payMethodFilter');
-      if (dateFilter) {
-        dispatch(changeOptionDate(parseInt(dateFilter)));
-      }
-      if (payMethodFilter) {
-        dispatch(setFilter(payMethodFilter));
-      }
-      setFiltersLoaded(true);
+    const dateFilter = localStorage.getItem('dateFilter');
+    const payMethodFilter = localStorage.getItem('payMethodFilter');
+    if (dateFilter) {
+      dispatch(changeOptionDate(parseInt(dateFilter)));
     }
-  }, [filtersLoaded, dispatch])
+    if (payMethodFilter) {
+      dispatch(setFilter(payMethodFilter));
+    }
+  }, [filtersLoaded, transactions, dispatch])
 
   useEffect(() => {
-    if (filtersLoaded) {
-      dispatch(getTransactions());
-    }
-  }, [optionDate, filter, filtersLoaded, dispatch]);
+    dispatch(getTransactions());
+  }, [dispatch]);
 
   const handleFilterDate = (e, value) => {
     e.preventDefault();
@@ -77,7 +72,7 @@ const Dashboard = () => {
       </div>
 
       <TransactionsTable
-        data={transactions}
+        data={filteredTransactions}
         isLoading={isLoading}
         option={optionDate}
         formatterField={formatterField}

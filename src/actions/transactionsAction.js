@@ -8,12 +8,9 @@ const setTotalSalesSuccess = value => ({ type: ACTIONS.GET_TRANSACTIONS.TOTAL_SA
 const setFilterSuccess = value => ({ type: ACTIONS.GET_TRANSACTIONS.FILTER, value });
 
 export function getTransactions() {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(setLoadingSuccess(true));
-    const state = getState();
-    const { transactions } = state;
-    const { optionDate, filter } = transactions;
-    return getTransactionsApi(optionDate, filter).then((data) => {
+    return getTransactionsApi().then((data) => {
       let totalSales = 0;
       data.forEach(item => {
         if (item.status === 'SUCCESSFUL') {

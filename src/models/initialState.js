@@ -5,6 +5,7 @@ const transactions = {
     filter: 'ALL',
     totalSales: 0,
     isLoading: false,
+    filteredTransactions: []
   }
 }
 
